@@ -2,6 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import swal from "sweetalert"
 
+const API_BASE = import.meta.env.VITE_RENDER_URL
+
 const Contact = () => {
 
     const [ContactList, setContactList] = useState([])
@@ -20,8 +22,6 @@ const Contact = () => {
     useEffect(() => {
         getContact()
     }, []);
-
-    const API_BASE = import.meta.env.VITE_RENDER_URL
 
     const getContact = () => {
         axios.get(`${API_BASE}/api/contacts`)
@@ -115,7 +115,7 @@ const Contact = () => {
                 console.log('hello')
                 if (willDelete) {
                     setIsLoading(true)
-                    axios.delete(`${API_BASE}/api/contacts/${data._1d}`)
+                    axios.delete(`${API_BASE}/api/contacts/${data._id}`)
                         .then(res => {
                             setIsLoading(false)
                             swal("Deleted", `${data.name} deleted`, "success");
