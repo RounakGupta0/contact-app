@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+.Header {
+    background-color: teal;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    height: 100px;
+}
+
+.Header h1 {
+    color: white;
+}
+
+.Header p {
+    color: yellow;
+    font-size: 20px;
+}
+
+.contact {
+    display: flex;
+    gap: 25px;
+    padding: 30px;
+    background: #e6f4f1;
+    min-height: calc(100vh - 100px);
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+}
+
+.loader-spinner {
+    width: 48px;
+    height: 48px;
+    border: 6px solid rgba(0, 128, 128, 0.2);
+    border-top-color: teal;
+    border-radius: 50%;
+    animation: spinner-rotate 0.8s linear infinite;
+}
+
+@keyframes spinner-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.no-contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+    color: #e93925;
+    font-size: 1.75rem;
+    font-weight: 600;
+    background: #f1f9f8;
+    border-radius: 18px;
+}
+
+.no-contacts p {
+    margin: 0;
+}
+
+/* ======================
+   CONTACT LIST
+====================== */
+
+.ContactList-wrapper {
+    flex: 2;
+    background: white;
+    border-radius: 18px;
+    padding: 0 20px 20px 20px; 
+    box-shadow: 0 10px 25px rgba(0, 128, 128, 0.15);
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+    height: 600px;
+    overflow-y: auto;
+    overflow-x: auto;
+    clip-path: inset(0% 0% 0% 0% round 18px);
+}
+
+/* ======================
+   CUSTOM SCROLLBAR STYLING
+====================== */
+
+.ContactList-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ContactList-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ContactList-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(0, 128, 128, 0.25); 
+    border-radius: 10px;
+}
+
+.ContactList-wrapper::-webkit-scrollbar-thumb:hover {
+    background: teal;
+}
+
+.ContactList-header {
+    margin-top: 20px; 
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ContactList-header h2 {
+    color: teal;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* ======================
+   TABLE
+====================== */
+
+.profilepic-img
+{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.profilepic-img:hover
+{
+    transform: scale(2);
+    z-index: 1000;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+thead {
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 105; 
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background: teal;
+    /* High stacking index completely locks down headers above any animated rows underneath */
+    z-index: 105; 
+}
+
+th {
+    padding: 15px;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+thead th:first-child {
+    border-top-left-radius: 12px;
+}
+
+thead th:last-child {
+    border-top-right-radius: 12px;
+}
+
+td {
+    padding: 14px;
+    text-align: center;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: 0.3s;
+}
+
+tbody tr:hover {
+    background: rgba(0, 128, 128, 0.08);
+    transform: scale(1.01);
+    position: relative;
+    z-index: 1; 
+}
+
+/* ======================
+   BUTTONS
+====================== */
+
+.delete-btn,
+.edit-btn {
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.delete-btn {
+    background: rgb(236, 99, 99);
+    color: white;
+}
+
+.delete-btn:hover {
+    background: rgb(170, 20, 20);
+}
+
+.edit-btn {
+    background: rgb(249, 227, 105);
+    color: rgb(38, 35, 35);
+}
+
+.edit-btn:hover {
+    background: rgb(255, 196, 0);
+}
+
+.cancel-btn {
+    position: absolute;
+    top: 20px;
+    right: 18px;
+    background: none;
+    font-size: 30px;
+    color: #888;
+    cursor: pointer;
+    transition: 0.3s;
+    color: red;
+}
+
+.cancel-btn:hover {
+    color: rgb(211, 33, 33);
+}
+
+/* ======================
+   FORM CARD
+====================== */
+
+.ContactForm-wrapper {
+    flex: 1;
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 10px 10px 25px rgba(0, 128, 128, 0.15);
+    height: auto;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+}
+
+.ContactForm-header {
+    margin-bottom: 20px;
+    padding-left: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ContactForm-header h2 {
+    color: teal;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.ContactForm-wrapper form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ContactForm-wrapper input,
+.ContactForm-wrapper select {
+    padding: 11px 12px;
+    border: 2px solid #d8d8d8;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.ContactForm-wrapper input:focus,
+.ContactForm-wrapper select:focus {
+    border-color: teal;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 128, 128, 0.15);
+}
+
+.ContactForm-wrapper button.submit-btn {
+    background: teal;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.ContactForm-wrapper button.submit-btn:hover {
+    background: #006666;
+}
+
+.file-note {
+    font-size: 15px;
+    padding: 5px;
+}
+
+.image-preview {
+    margin: 12px auto 0;
+    width: 100px;
+    aspect-ratio: 1 / 1;
+    border: 2px solid rgba(0, 128, 128, 0.25);
+    border-radius: 50%;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+@media (max-width: 1080px) {
+    .contact {
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .ContactList-wrapper,
+    .ContactForm-wrapper {
+        position: static;
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    .ContactList-wrapper {
+        overflow-x: auto;
+    }
+    .image-preview {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .contact {
+        padding: 20px;
+    }
+
+    .ContactList-header h2,
+    .ContactForm-header h2 {
+        font-size: 1.6rem;
+    }
+
+    thead th,
+    td {
+        padding: 12px 10px;
+        font-size: 0.92rem;
+    }
+
+    .delete-btn,
+    .edit-btn {
+        padding: 10px 12px;
+    }
+
+    .image-preview {
+        max-width: 160px;
+        min-height: 0;
+    }
+}
