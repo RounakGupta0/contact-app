@@ -21,8 +21,10 @@ const Contact = () => {
         getContact()
     }, []);
 
+    const API_BASE = import.meta.env.VITE_RENDER_URL
+
     const getContact = () => {
-        axios.get("https://contact-api-87n4.onrender.com/api/contacts")
+        axios.get(`${API_BASE}/api/contacts`)
             .then((res) => {
                 console.log(res.data.data)
                 setContactList(res.data.data)
@@ -57,7 +59,7 @@ const Contact = () => {
         }
 
         if (editing) {
-            axios.put("https://contact-api-87n4.onrender.com/api/contacts/" + id, newcontact, {
+            axios.put(`${API_BASE}/api/contacts/${id}`, newcontact, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -80,7 +82,7 @@ const Contact = () => {
                 })
         }
         else {
-            axios.post("https://contact-api-87n4.onrender.com/api/contacts", newcontact, {
+            axios.post(`${API_BASE}/api/contacts`, newcontact, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -113,7 +115,7 @@ const Contact = () => {
                 console.log('hello')
                 if (willDelete) {
                     setIsLoading(true)
-                    axios.delete('https://contact-api-87n4.onrender.com/api/contacts/' + data._id)
+                    axios.delete(`${API_BASE}/api/contacts/${data._1d}`)
                         .then(res => {
                             setIsLoading(false)
                             swal("Deleted", `${data.name} deleted`, "success");
