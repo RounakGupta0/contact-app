@@ -1,18 +1,55 @@
-# React + Vite
+# Contact App (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Small contact-management demo built with React and Vite. Features a contact list, add/edit/delete flow, image upload with preview, and a custom CSS loader.
 
-Currently, two official plugins are available:
+## Features
+- List contacts fetched from a simple REST API
+- Add / edit / delete contacts (with image upload via multipart/form-data)
+- Local image preview before upload (circular preview)
+- Responsive layout for small screens
+- Lightweight CSS spinner (no external icon required)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Quick start
 
-## React Compiler
+1. Install dependencies
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+```bash
+npm install
+```
 
-Note: This will impact Vite dev & build performances.
+2. Run the development server
 
-## Expanding the Oxlint configuration
+```bash
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+3. Build for production
+
+```bash
+npm run build
+```
+
+4. Preview production build
+
+```bash
+npm run preview
+```
+
+## Project structure (important files)
+- `index.html` — app root and global scripts
+- `src/main.jsx` — React entry
+- `src/App.jsx` — top-level app wrapper
+- `src/Contact.jsx` — main contact list / form component
+- `src/App.css` — global styles (includes responsive rules and image preview styles)
+
+## Notes & tips
+- The contact API URL is set in `src/Contact.jsx`. Replace it with your backend if needed.
+- Image previews use `URL.createObjectURL` and are revoked on form reset.
+- The loader uses a CSS spinner (`.loader-spinner`) so the app does not require Font Awesome for that purpose.
+- Tables become horizontally scrollable on smaller screens to avoid layout breakage.
+
+## Contributing
+Feel free to open issues or send PRs. Keep changes focused (styles, responsiveness, or API integration updates welcome).
+
+## License
+This project is provided as-is. Add a license file if you plan to reuse or distribute it.
