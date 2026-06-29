@@ -26,7 +26,7 @@
 
 .contact {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     padding: 30px;
     background: #e6f4f1;
     min-height: calc(100vh - 100px);
@@ -180,6 +180,9 @@ thead th:last-child {
 td {
     padding: 14px;
     text-align: center;
+    width: fit-content;
+    white-space: nowrap;
+    font-size: 15px;
 }
 
 tbody tr {
